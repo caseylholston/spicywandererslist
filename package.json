@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jhuang0913/spicywandererslist#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "bcrypt-node": "^0.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",

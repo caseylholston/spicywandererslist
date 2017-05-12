@@ -1,6 +1,7 @@
 var express = require("express"),
     passport = require("passport"),
-    router = express.Router();
+    router = express.Router(),
+    db = require('../models');
 
 var isLoggedIn = function(req, res, next) {
     if (req.isAuthenticated()) {
@@ -18,7 +19,13 @@ router.get("/signup", function(req, res) {
 });
 
 router.get("/dashboard", isLoggedIn, function(req, res) {
-    res.render("dashboard");
+      db.Todos.findAll({}).then(function(dbTodos) {
+    var hbsObject = {
+      todoList: dbTodos
+    };  
+    
+    res.render("dashboard", hbsobject);
+});
 });
 
 

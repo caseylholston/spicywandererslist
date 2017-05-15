@@ -1,19 +1,15 @@
 var express = require("express"),
     passport = require("passport"),
     router = express.Router(),
-<<<<<<< HEAD
-    db = require('../models');
-=======
     db = require("../models");
->>>>>>> upstream/master
 
 
-// var isLoggedIn = function(req, res, next) {
-//     if (req.isAuthenticated()) {
-//         return next();
-//     }
-//     res.redirect("/signin");
-// };
+var isLoggedIn = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/signin");
+};
 router.get("/", function(req, res) {
     res.render("index");
 });
@@ -23,26 +19,24 @@ router.get("/", function(req, res) {
 // });
 
 router.get("/dashboard", isLoggedIn, function(req, res) {
-<<<<<<< HEAD
-      db.Todos.findAll({}).then(function(dbTodos) {
+      db.Todo.findAll({}).then(function(dbTodos) {
     var hbsObject = {
       todoList: dbTodos
     };  
     
     res.render("dashboard", hbsobject);
 });
-=======
-    db.User.findAll({}).then(function(dbUser) {
-        console.log(dbUser);
+});
 
-        var hbsObject = {
-
-            user: dbUser
-        };
-        res.render("dashboard", hbsObject);
-    })
-
->>>>>>> upstream/master
+router.get("/test", function(req, res) {
+    console.log("request: " + req)
+      db.Todo.findAll({include: [db.User]}).then(function(dbTodo) {
+          console.log('dbTodos Query result: ' + dbTodo)
+    var hbsObject = {
+      todoList: dbTodo
+    };  
+    res.render("test", hbsObject);
+});
 });
 
 

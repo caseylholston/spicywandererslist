@@ -29,12 +29,9 @@
     "method-override": "^2.3.8",
     "mysql": "^2.13.0",
     "passport": "^0.3.2",
-<<<<<<< HEAD
     "passport-google": "^0.3.0",
-=======
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
->>>>>>> upstream/master
     "passport-local": "^1.0.0",
     "passport-strategy": "^1.0.0",
     "sequelize": "^3.30.4"

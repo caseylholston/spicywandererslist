@@ -1,11 +1,4 @@
 var bCrypt = require("bcrypt-nodejs");
-<<<<<<< HEAD
-
-module.exports = function(passport, user) {
-    var User = user;
-    var LocalStrategy = require('passport-local').Strategy;
-    var GoogleStrategy = require('passport-google').Strategy;
-=======
 var configAuth = require("../auth.js");
 var passport = require("passport");
 var FacebookStrategy = require("passport-facebook").Strategy;
@@ -16,7 +9,7 @@ var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 console.log(db.User);
 
 module.exports = function(passport, user) {
->>>>>>> upstream/master
+
 
     // passport.serializeUser(function(user, done) {
     //     done(null, user.id);
@@ -159,8 +152,6 @@ module.exports = function(passport, user) {
 
             });
 
-        }
-
-
-    ));
+        }));
+};
 

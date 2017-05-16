@@ -3,7 +3,7 @@ var configAuth = require("../auth.js");
 var passport = require("passport");
 var FacebookStrategy = require("passport-facebook").Strategy;
 var db = require("../../models");
-var LocalStrategy = require('passport-local').Strategy;
+//var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 console.log(db.User);
@@ -143,7 +143,8 @@ module.exports = function(passport, user) {
     passport.use(new GoogleStrategy({
             clientID: configAuth.googleAuth.clientID,
             clientSecret: configAuth.googleAuth.clientSecret,
-            callbackURL: configAuth.googleAuth.callbackURL
+            callbackURL: configAuth.googleAuth.callbackURL,
+            scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']            
         },
         function(accessToken, refreshToken, profile, cb) {
             console.log(profile);

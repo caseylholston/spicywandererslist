@@ -69,8 +69,8 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
         due_date: {
-            type: Sequelize.DATEONLY,
-            allowNull: false
+            type: Sequelize.DATE,
+            allowNull: true
                 //Needs Validation and calendar picker on front end
         },
         invitees: {
@@ -79,7 +79,7 @@ module.exports = function(sequelize, Sequelize) {
         },
         list_name: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
                 //Should this have a default value?
         },
         repeating: {

@@ -5,11 +5,10 @@ module.exports = function(sequelize, Sequelize) {
             primaryKey: true,
             type: Sequelize.INTEGER
         },
-        firstName: {
-            type: Sequelize.STRING,
-            notEmpty: true
+        authID: {
+            type: Sequelize.STRING
         },
-        lastName: {
+        displayName: {
             type: Sequelize.STRING,
             notEmpty: true
         },
